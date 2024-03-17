@@ -27,7 +27,7 @@ This project demonstrates a basic Todo application with CRUD (Create, Read, Upda
 - DELETE /todos/:id: Delete a todo
 
 ## Frontend Functionality:
--View a list of existing todos.
--Add new todos.
--Mark todos as completed/incomplete.
--Delete todos.
+- View a list of existing todos.
+- Add new todos.
+- Mark todos as completed/incomplete.
+- Delete todos.
