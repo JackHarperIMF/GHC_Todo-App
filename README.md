@@ -1,7 +1,7 @@
-#Todo App with Express.js, Prisma, PostgreSQL and ReactJS
+# Todo App with Express.js, Prisma, PostgreSQL and ReactJS
 This project demonstrates a basic Todo application with CRUD (Create, Read, Update, Delete) functionalities. It utilizes the following technologies:
 
-##Backend:
+## Backend:
 -Express.js: Web framework for building Node.js applications.
 -Prisma: ORM (Object-Relational Mapper) for interacting with a PostgreSQL database.
 -PostgreSQL: Relational database management system.
