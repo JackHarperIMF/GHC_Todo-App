@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const { PrismaClient } = require('@prisma/client');
+const axios = require('axios');
 
 const app = express();
 const prisma = new PrismaClient();
@@ -9,11 +10,13 @@ const prisma = new PrismaClient();
 app.use(cors());
 app.use(bodyParser.json());
 
+const apiUrl = 'https://ghc-applications-api.vercel.app/'
+
 // Get all todos
 app.get('/todos', async (req, res) => {
   try {
-    const todos = await prisma.todo.findMany();
-    res.json(todos);
+    const todos = await axios.get(apiUrl);
+    res.json(todos.data);
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: "Error retrieving todos" });
@@ -24,7 +27,7 @@ app.get('/todos', async (req, res) => {
 app.post('/todos', async (req, res) => {
   const { title } = req.body;
   try {
-    const newTodo = await prisma.todo.create({
+    const newTodo = await axios.get(apiUrl).todo.create({
       data: {
         title,
       },
@@ -41,7 +44,7 @@ app.put('/todos/:id', async (req, res) => {
   const id = parseInt(req.params.id);
   const { title, completed } = req.body;
   try {
-    const updatedTodo = await prisma.todo.update({
+    const updatedTodo = await axios.get(apiUrl).todo.update({
       where: { id },
       data: {
         title,
@@ -59,7 +62,7 @@ app.put('/todos/:id', async (req, res) => {
 app.delete('/todos/:id', async (req, res) => {
   const id = parseInt(req.params.id);
   try {
-    await prisma.todo.delete({ where: { id } });
+    await axios.get(apiUrl).todo.delete({ where: { id } });
     res.json({ message: "Todo deleted successfully" });
   } catch (error) {
     console.error(error);
@@ -67,5 +70,6 @@ app.delete('/todos/:id', async (req, res) => {
   }
 });
 
-app.listen(3000, () => console.log('Server running on port 3000'));
+const PORT = process.env.port || 5000;
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 
