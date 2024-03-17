@@ -21,10 +21,10 @@ This project demonstrates a basic Todo application with CRUD (Create, Read, Upda
 - Run the app with npm start to check its functionality
 
 ## API Endpoints:
--GET /todos: Retrieve all todos
--POST /todos: Create a new todo
--PUT /todos/:id: Update a todo
--DELETE /todos/:id: Delete a todo
+- GET /todos: Retrieve all todos
+- POST /todos: Create a new todo
+- PUT /todos/:id: Update a todo
+- DELETE /todos/:id: Delete a todo
 
 ## Frontend Functionality:
 -View a list of existing todos.
