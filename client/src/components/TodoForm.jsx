@@ -9,7 +9,7 @@ const TodoForm = ({ onAddTodo }) => {
     const newTodo = { title };
     await axios.post('/todos', newTodo);
     onAddTodo(newTodo);
-    setTitle('');
+    setTitle(title);
   };
 
   return (
